@@ -23,7 +23,7 @@ as well as to verify your TL classifier.
 TODO (for Yousuf and Aaron): Stop line location for each traffic light.
 '''
 
-LOOKAHEAD_WPS = 200 # Number of waypoints we will publish. You can change this number
+LOOKAHEAD_WPS = 50 # Number of waypoints we will publish. You can change this number
 PUBLISH_RATE = 20 # Publish rate(Hz)
 ACCEL = 1.0 # 
 debugging = True
@@ -51,17 +51,13 @@ class WaypointUpdater(object):
         self.msg_seq = 0 # Sequence number of /final_waypoints message
         self.max_velocity = None # The maximum velocity 
         self.slow_dist = None # The distance between red light and current car to start slowing down
-
-        # Parameters
-        self.accel = rospy.get_param('~target_brake_accel', -1.0)
-        self.stop_distance = rospy.get_param('~stop_distance', 5.0) # Distance (m) where car will stop before red light
-
         self.loop()
 
     def loop(self):
         rate = rospy.Rate(PUBLISH_RATE)
         while not rospy.is_shutdown():
             is_initialized = self.base_waypoints and self.current_pose
+            print("Initialized")
             if is_initialized:
                 cur_idx = self.closest_waypoint()
                 self.next_waypoint = self.get_next_waypoint()
@@ -124,7 +120,7 @@ class WaypointUpdater(object):
                         speed = max(self.max_speed, speed-ACCEL)
                     else:
                         speed = min(self.max_speed, speed+ACCEL)
-                    self.set_waypoint_velocity(wp, speed) #Accelelerate to top speed
+                    self.set_waypoint_velocity(wp, speed)
 
 
     def car_yaw(self):
