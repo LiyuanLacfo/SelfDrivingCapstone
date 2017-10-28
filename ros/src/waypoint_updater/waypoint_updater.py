@@ -8,7 +8,7 @@ from std_msgs.msg import Int32
 import math
 import tf
 from copy import deepcopy
-from scipy.interpolate import CubicSpline
+
 
 '''
 This node will publish waypoints from the car's current position to some `x` distance ahead.
