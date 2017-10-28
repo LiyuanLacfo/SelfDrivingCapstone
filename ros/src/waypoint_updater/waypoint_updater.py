@@ -26,14 +26,12 @@ TODO (for Yousuf and Aaron): Stop line location for each traffic light.
 LOOKAHEAD_WPS = 50 # Number of waypoints we will publish. You can change this number
 PUBLISH_RATE = 20 # Publish rate(Hz)
 ACCEL = 1.0 # 
-debugging = True
 STOP_DIST = 2.0 #
 
 
 class WaypointUpdater(object):
     def __init__(self):
         rospy.init_node('waypoint_updater')
-        print("Hello welcome to updater")
         self.current_pose_sub = rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb, queue_size=1)
         self.base_waypoints_sub = rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb, queue_size=1)
         self.traffic_light_sub = rospy.Subscriber('/traffic_waypoint', Int32, self.traffic_cb, queue_size=1)
