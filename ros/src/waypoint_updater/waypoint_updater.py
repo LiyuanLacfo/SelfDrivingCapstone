@@ -76,7 +76,7 @@ class WaypointUpdater(object):
         final_waypoints_msg.header.frame_id = '/world'
         self.msg_seq += 1
         self.set_final_waypoints()
-        self.set_final_waypoints_velocities()
+        self.set_final_velocities()
         final_waypoints_msg.waypoints = self.final_waypoints
         self.final_waypoints_pub.publish(final_waypoints_msg)
 
