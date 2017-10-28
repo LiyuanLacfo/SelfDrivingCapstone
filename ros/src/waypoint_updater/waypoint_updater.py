@@ -42,7 +42,7 @@ class WaypointUpdater(object):
         self.final_waypoints = None
         self.current_pose = None
         self.next_waypoint_index = None
-        self.light_wp = None
+        self.light_wp = -1
         self.max_speed = None
         self.slow_dist = None
 
