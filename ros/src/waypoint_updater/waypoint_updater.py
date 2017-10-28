@@ -85,7 +85,7 @@ class WaypointUpdater(object):
         
         # While ROS is running
         while not rospy.is_shutdown():
-            is_initialized = self.base_waypoints and self.current_pose and self.light_wp
+            is_initialized = self.base_waypoints and self.current_pose
             
             # If we're initialized
             if is_initialized: # and self.current_velocity:
