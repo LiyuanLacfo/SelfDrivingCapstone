@@ -165,8 +165,8 @@ class WaypointUpdater(object):
         #heading angle between (cur_x, cur_y) and (map_x, map_y) to determine the waypoint index of the next waypoint in base_waypoints
         ind = self.closest_waypoint()
 
-        map_x = self.waypoints[ind].pose.pose.position.x
-        map_y = self.waypoints[ind].pose.pose.position.y
+        map_x = self.base_waypoints[ind].pose.pose.position.x
+        map_y = self.base_waypoints[ind].pose.pose.position.y
 
         cur_x = self.current_pose.pose.position.x
         cur_y = self.current_pose.pose.position.y
