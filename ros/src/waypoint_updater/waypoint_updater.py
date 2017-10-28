@@ -172,7 +172,7 @@ class WaypointUpdater(object):
         cur_y = self.current_pose.pose.position.y
 
         yaw = self.car_yaw() #the current yaw rate of the car
-        heading = math.atan2((may_y - cur_y), (map_x - cur_x))
+        heading = math.atan2((map_y - cur_y), (map_x - cur_x))
         diff_angle = abs(yaw - heading)
         if diff_angle > math.pi/4:
             ind = (ind + 1) % len(self.base_waypoints)
