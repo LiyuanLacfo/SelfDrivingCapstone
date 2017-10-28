@@ -6,6 +6,7 @@ from styx_msgs.msg import Lane, Waypoint, TrafficLight, TrafficLightArray
 from std_msgs.msg import Int32
 import math
 import tf
+from copy import deepcopy
 
 '''
 This node will publish waypoints from the car's current position to some `x` distance ahead.
