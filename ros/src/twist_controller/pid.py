@@ -4,10 +4,8 @@ MAX_NUM = float('inf')
 
 
 class PID(object):
-    def __init__(self, kp, ki, kd, mn=MIN_NUM, mx=MAX_NUM):
-        self.kp = kp
-        self.ki = ki
-        self.kd = kd
+    def __init__(self, gains, mn=MIN_NUM, mx=MAX_NUM):
+        self.kp, self.ki, self.kd = gains
         self.min = mn
         self.max = mx
 
@@ -35,3 +33,4 @@ class PID(object):
         self.last_error = error
 
         return val
+
