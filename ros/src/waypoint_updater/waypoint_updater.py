@@ -96,7 +96,7 @@ class WaypointUpdater(object):
                 self.set_waypoint_velocity(wp, speed)
         else:
             dist = self.distance(self.base_waypoints, self.next_waypoint, self.red_light_index)
-            rospy.logwarn("Next wp: %s, Next TL wp: %s, distance: %s",self.next_waypoint_index, self.light_wp, dist)
+            rospy.logwarn("Next wp: %s, Next TL wp: %s, distance: %s",self.next_waypoint, self.red_light_index, dist)
             if dist <= self.slow_dist:
                 speed = self.current_velocity
                 if dist > STOP_DIST:
